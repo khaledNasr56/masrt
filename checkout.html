@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta8 name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--All Meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <!-- link css file-->
+    <link rel="stylesheet" href="./checkout.css">
+    <!--link icons-->
+	<link rel="stylesheet" href="https://fonts.googleeapis.com/css2?family=Material+Symbol-Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../image/download.jpg">
+
+    <!-- Title -->
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+        .container {
+            bottom: 40%;
+            max-width: 1800px;
+            margin: 60px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .product {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product .name {
+            flex: 1;
+        }
+
+        .product .price {
+            margin-left: 20px;
+            color: #007bff;
+        }
+
+        .product button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        #cart {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+
+        #cart .cart-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        #total {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--header section start-->
+<header class="header-1">
+    <div class="p1">
+        <a href=""><i class="fa-solid fa-envelope"></i>contact@company.com</a>
+        <a href=""><i class="fa-solid fa-phone"></i>123-456-7890</a>
+    </div>
+    <div class="p2">
+        <i class="fa-solid fa-bars toggle-menu" style="color: rgb(242, 247, 247);font-size:20px"> </i>
+         <ul>
+        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+        <a href=""><i class="fa-brands fa-instagram"></i></a>
+        <a href=""><i class="fa-brands fa-twitter"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        </ul>
+    </div>
+</header>
+<section class="home">
+    <header class="header-2">        
+<div class="logo"><p>MOBILE STORE website</p></div>
+   <nav class="navbar">
+
+    <i class="fa-solid fa-bars toggle-menu" style="font-size:20px"> </i>
+    <ul>
+     <a href="./home/htmlfile.html">Home</a>
+     <a href="../products/product.html">Product</a>
+     <a href="">Check Out</a>
+     <a href="../contact us/index.html">Contact Us</a>
+    </ul>
+
+   </nav>
+</header>
+  
+    
+    <div class="container">
+      <div class="breadcrumb" id="breadcrumb">
+       
+        <a href="../home/htmlfile.html" onclick="updateBreadcrumb('home')">home</a> &gt; 
+        <a href="../products/product.html" onclick="updateBreadcrumb('products')">
+            products</a> &gt; <span  id="currentPath"> cart</span>
+        
+      
+    
+    </div>
+
+
+
+      <div class="container">
+        <div class="product" data-name="Iphone 6" data-price="10.00">
+            <div class="name">Iphone 6 </div>
+            <div class="price">$10.00</div>
+            <button onclick="addToCart('Iphone 6 ', 10.00)"> To_Cart </button>
+            
+
+        </div>
+        <div class="product" data-name="Iphone 11" data-price="20.00">
+            <div class="name"> Iphone 11</div>
+            <div class="price">$20.00</div>
+            <button onclick="addToCart('Iphone 11', 20.00)"> To_Cart </button>
+
+        </div>
+
+        <div id="cart">
+            <h2> MyCart</h2>
+            <div id="cart-items"></div>
+            <p id="total">total: $0.00</p>
+        </div>
+    </div>
+    <!-- start footer-->
+<footer>
+	<div class="footer-col">
+		<a href="./htmlfile.html" class="kholeo">Home</a>
+		
+		<ul>
+			<li><a href="#">Some Product</a></li>
+			<li><a href="#">Social</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+	</div>
+	<div class="footer-col">
+		<a href="../products/product.html" class="kholeo">product</a>
+
+		<ul>
+			<li><a href="#">Iphone</a></li>
+			<li><a href="#">Oppo</a></li>
+			<li><a href="#">Redmi</a></li>
+			<li><a href="#">Samsung</a></li>
+			<li><a href="#">Nokia</a></li>
+		</ul>
+	</div>
+	<div class="footer-col">
+		<a href="../contact us/index.html" class="kholeo">Contact Us</a>
+
+		<ul>
+			<li><a href="#">Phone</a></li>
+			<li><a href="#">Email</a></li>
+			<li><a href="#">Location</a></li>
+		</ul>
+	</div>
+	<div class="footer-col">
+		<h4>follow us</h4>
+		<div class="links">
+			<a href="#"><i class="fab fa-linkedin-in"></i></a>
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+		</div>
+	</div>
+</footer>
+
+<!--end footer-->
+
+    <script>
+        function addToCart(name, price) {
+            const cart = document.getElementById("cart-items");
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            cartItem.innerHTML = `<p>${name} - $${price.toFixed(2)}</p>`;
+            cart.appendChild(cartItem);
+            calculateTotal();
+        }
+        
+     function updateBreadcrumb(path) {
+            // Update the breadcrumb dynamically
+            const breadcrumb = document.getElementById("currentPath");
+            breadcrumb.innerText = path;
+        }
+
+     
+      
+        function calculateTotal() {
+            const cartItems = document.querySelectorAll(".cart-item");
+            let total = 0;
+
+            cartItems.forEach((item) => {
+                const price = parseFloat(item.innerText.match(/\$([\d,]+(\.\d{2})?)/)[1].replace(',', ''));
+                total += price;
+            });
+
+            const totalElement = document.getElementById("total");
+            totalElement.textContent = `total: $${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
